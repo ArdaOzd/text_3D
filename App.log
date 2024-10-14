@@ -1,0 +1,1824 @@
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 637
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 637
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 3895
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear existing mesh objects
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Create a tower
+def create_tower(location=(0, 0, 5)):
+    bpy.ops.mesh.primitive_cube_add(size=2, location=location)
+    tower = bpy.context.object
+    tower.scale.z = 5  # Make the tower taller
+    return tower
+
+# Create a bridge
+def create_bridge(location=(0, 0, 10)):
+    bpy.ops.mesh.primitive_cube_add(size=10, location=location)
+    bridge = bpy.context.object
+    bridge.scale.x = 0.2
+    return bridge
+
+# Create human-like figure
+def create_person(location):
+    bpy.ops.mesh.primitive_uv_sphere_add(radius=0.5, location=location)
+
+# Create a car
+def create_car(location, color):
+    bpy.ops.mesh.primitive_cube_add(size=1, location=location)
+    car = bpy.context.object
+    car.scale.x = 2  # Scale to car shape
+    car.scale.y = 1
+    car.scale.z = 0.5
+    
+    # Add material
+    mat = bpy.data.materials.new(name="CarMaterial")
+    mat.diffuse_color = color
+    if car.data.materials:
+        car.data.materials[0] = mat
+    else:
+        car.data.materials.append(mat)
+    
+    return car
+
+# Create a pyramid
+def create_pyramid(location=(0, -10, 1)):
+    bpy.ops.mesh.primitive_cone_add(vertices=4, radius1=3, depth=3, location=location)
+    
+# Add lighting
+def add_lighting():
+    bpy.ops.object.light_add(type='SUN', location=(50, 50, 50))
+    sun = bpy.context.object
+    sun.data.energy = 10  # Set brightness
+    
+    # Enable environment lighting
+    bpy.context.scene.world.use_nodes = True
+    world = bpy.context.scene.world
+    world.node_tree.nodes['Background'].inputs[1].default_value = 1.0
+
+# Build scene
+tower1 = create_tower(location=(-5, 0, 5))
+tower2 = create_tower(location=(5, 0, 5))
+bridge = create_bridge(location=(0, 0, 10))
+
+# Create 10 people
+for i in range(10):
+    create_person(location=(i-5, -6, 0.5))
+
+# Create cars
+car1 = create_car(location=(-3, -8, 0.5), color=(0, 0, 1, 1))  # Blue car
+car2 = create_car(location=(3, -8, 0.5), color=(1, 0, 0, 1))  # Red car
+
+# Create a pyramid
+create_pyramid()
+
+# Add lighting
+add_lighting()
+
+# Set up for rendering
+bpy.context.scene.render.filepath = './gen_images/render.png'
+bpy.ops.render.render(write_still=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_074537.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 7060
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear existing mesh objects
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Create a tower
+def create_tower(location=(0, 0, 5)):
+    bpy.ops.mesh.primitive_cube_add(size=2, location=location)
+    tower = bpy.context.object
+    tower.scale.z = 5  # Make the tower taller
+    return tower
+
+# Create a bridge
+def create_bridge(location=(0, 0, 10)):
+    bpy.ops.mesh.primitive_cube_add(size=10, location=location)
+    bridge = bpy.context.object
+    bridge.scale.x = 0.2
+    return bridge
+
+# Create human-like figure
+def create_person(location):
+    bpy.ops.mesh.primitive_uv_sphere_add(radius=0.5, location=location)
+
+# Create a car
+def create_car(location, color):
+    bpy.ops.mesh.primitive_cube_add(size=1, location=location)
+    car = bpy.context.object
+    car.scale.x = 2  # Scale to car shape
+    car.scale.y = 1
+    car.scale.z = 0.5
+    
+    # Add material
+    mat = bpy.data.materials.new(name="CarMaterial")
+    mat.diffuse_color = color
+    if car.data.materials:
+        car.data.materials[0] = mat
+    else:
+        car.data.materials.append(mat)
+    
+    return car
+
+# Create a pyramid
+def create_pyramid(location=(0, -10, 1)):
+    bpy.ops.mesh.primitive_cone_add(vertices=4, radius1=3, depth=3, location=location)
+    
+# Add lighting
+def add_lighting():
+    bpy.ops.object.light_add(type='SUN', location=(50, 50, 50))
+    sun = bpy.context.object
+    sun.data.energy = 10  # Set brightness
+    
+    if bpy.context.scene.world is None:
+        bpy.context.scene.world = bpy.data.worlds.new("World")
+        
+    # Enable environment lighting
+    bpy.context.scene.world.use_nodes = True
+    world = bpy.context.scene.world
+    world.node_tree.nodes['Background'].inputs[1].default_value = 1.0
+
+# Build scene
+tower1 = create_tower(location=(-5, 0, 5))
+tower2 = create_tower(location=(5, 0, 5))
+bridge = create_bridge(location=(0, 0, 10))
+
+# Create 10 people
+for i in range(10):
+    create_person(location=(i - 5, -6, 0.5))
+
+# Create cars
+car1 = create_car(location=(-3, -8, 0.5), color=(0, 0, 1, 1))  # Blue car
+car2 = create_car(location=(3, -8, 0.5), color=(1, 0, 0, 1))  # Red car
+
+# Create a pyramid
+create_pyramid()
+
+# Add lighting
+add_lighting()
+
+# Set up for rendering
+bpy.context.scene.render.filepath = './gen_images/render.png'
+bpy.ops.render.render(write_still=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_074603.py
+ERROR:root:An error occurred: Command '['/Applications/Blender.app/Contents/MacOS/Blender', '--background', '--python', './gen_scripts/generated_file_20241014_074603.py']' returned non-zero exit status 1.SubprocessError: The command failed. run_blender_script_error: 
+ stderr: 
+RuntimeError: Error: Cannot render, no camera
+
+ 
+
+Traceback (most recent call last):
+  File "/Users/ardaozdogru/Desktop/akka_hack/speech_3d/backend.py", line 251, in run_blender_script
+    raise subprocess.CalledProcessError(result.returncode, command, output=result.stdout, stderr=result.stderr)
+subprocess.CalledProcessError: Command '['/Applications/Blender.app/Contents/MacOS/Blender', '--background', '--python', './gen_scripts/generated_file_20241014_074603.py']' returned non-zero exit status 1.
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 15079
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear existing mesh objects
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Create a tower
+def create_tower(location=(0, 0, 5)):
+    bpy.ops.mesh.primitive_cube_add(size=2, location=location)
+    tower = bpy.context.object
+    tower.scale.z = 5  # Make the tower taller
+    return tower
+
+# Create a bridge
+def create_bridge(location=(0, 0, 10)):
+    bpy.ops.mesh.primitive_cube_add(size=10, location=location)
+    bridge = bpy.context.object
+    bridge.scale.x = 0.2
+    return bridge
+
+# Create human-like figure
+def create_person(location):
+    bpy.ops.mesh.primitive_uv_sphere_add(radius=0.5, location=location)
+
+# Create a car
+def create_car(location, color):
+    bpy.ops.mesh.primitive_cube_add(size=1, location=location)
+    car = bpy.context.object
+    car.scale.x = 2  # Scale to car shape
+    car.scale.y = 1
+    car.scale.z = 0.5
+    
+    # Add material
+    mat = bpy.data.materials.new(name="CarMaterial")
+    mat.diffuse_color = color
+    if car.data.materials:
+        car.data.materials[0] = mat
+    else:
+        car.data.materials.append(mat)
+    
+    return car
+
+# Create a pyramid
+def create_pyramid(location=(0, -10, 1)):
+    bpy.ops.mesh.primitive_cone_add(vertices=4, radius1=3, depth=3, location=location)
+    
+# Add lighting
+def add_lighting():
+    bpy.ops.object.light_add(type='SUN', location=(50, 50, 50))
+    sun = bpy.context.object
+    sun.data.energy = 10  # Set brightness
+    
+    if bpy.context.scene.world is None:
+        bpy.context.scene.world = bpy.data.worlds.new("World")
+        
+    # Enable environment lighting
+    bpy.context.scene.world.use_nodes = True
+    world = bpy.context.scene.world
+    world.node_tree.nodes['Background'].inputs[1].default_value = 1.0
+
+# Add a camera
+def add_camera(location=(0, -20, 10), rotation=(1.2, 0, 0)):
+    bpy.ops.object.camera_add(location=location, rotation=rotation)
+    camera = bpy.context.object
+    bpy.context.scene.camera = camera
+
+# Build scene
+tower1 = create_tower(location=(-5, 0, 5))
+tower2 = create_tower(location=(5, 0, 5))
+bridge = create_bridge(location=(0, 0, 10))
+
+# Create 10 people
+for i in range(10):
+    create_person(location=(i - 5, -6, 0.5))
+
+# Create cars
+car1 = create_car(location=(-3, -8, 0.5), color=(0, 0, 1, 1))  # Blue car
+car2 = create_car(location=(3, -8, 0.5), color=(1, 0, 0, 1))  # Red car
+
+# Create a pyramid
+create_pyramid()
+
+# Add lighting
+add_lighting()
+
+# Add camera
+add_camera()
+
+# Set up for rendering
+bpy.context.scene.render.filepath = './gen_images/render.png'
+bpy.ops.render.render(write_still=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_074631.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Fra:1 Mem:78.43M (Peak 78.43M) | Time:00:13.12 | Rendering 1 / 64 samples
+Fra:1 Mem:78.68M (Peak 78.68M) | Time:00:13.79 | Rendering 25 / 64 samples
+Fra:1 Mem:78.73M (Peak 78.73M) | Time:00:14.35 | Rendering 50 / 64 samples
+Fra:1 Mem:78.79M (Peak 78.79M) | Time:00:14.63 | Rendering 64 / 64 samples
+Saved: 'gen_images/render.png'
+Time: 00:15.61 (Saving: 00:00.80)
+
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 2762
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a cube
+def create_cube(size=2.0, location=(0, 0, 0)):
+    bpy.ops.mesh.primitive_cube_add(size=size, location=location)
+
+# Create the cube
+create_cube()
+
+# Make the cube exportable
+bpy.context.object.name = "Exportable_Cube"
+
+# For exporting, ensure the object is selected and active
+bpy.ops.object.select_all(action='DESELECT')
+bpy.context.view_layer.objects.active = bpy.data.objects["Exportable_Cube"]
+bpy.data.objects["Exportable_Cube"].select_set(True)
+
+# Export the cube as an OBJ file
+bpy.ops.export_scene.obj(filepath="./gen_images/cube.obj", use_selection=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_074930.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 5811
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a cube
+def create_cube(size=2.0, location=(0, 0, 0)):
+    bpy.ops.mesh.primitive_cube_add(size=size, location=location)
+
+# Create the cube
+create_cube()
+
+# Make the cube exportable
+bpy.context.object.name = "Exportable_Cube"
+
+# For exporting, ensure the object is selected and active
+bpy.ops.object.select_all(action='DESELECT')
+bpy.context.view_layer.objects.active = bpy.data.objects["Exportable_Cube"]
+bpy.data.objects["Exportable_Cube"].select_set(True)
+
+# Export the cube as an OBJ file
+bpy.ops.export_scene.obj(filepath="cube.obj", use_selection=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_074940.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 11858
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a cube
+def create_cube(size=2.0, location=(0, 0, 0)):
+    bpy.ops.mesh.primitive_cube_add(size=size, location=location)
+
+# Create the cube
+create_cube()
+
+# Make the cube exportable
+bpy.context.object.name = "Exportable_Cube"
+
+# For exporting, ensure the object is selected and active
+bpy.ops.object.select_all(action='DESELECT')
+bpy.context.view_layer.objects.active = bpy.data.objects["Exportable_Cube"]
+bpy.data.objects["Exportable_Cube"].select_set(True)
+
+# Check if the Wavefront OBJ export add-on is enabled
+if not bpy.context.preferences.addons.get('io_scene_obj'):
+    bpy.ops.preferences.addon_enable(module='io_scene_obj')
+
+# Export the cube as an OBJ file
+bpy.ops.export_scene.obj(filepath="cube.obj", use_selection=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_075002.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+Error: Add-on not loaded: "io_scene_obj", cause: No module named 'io_scene_obj'
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 17987
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a cube
+def create_cube(size=2.0, location=(0, 0, 0)):
+    bpy.ops.mesh.primitive_cube_add(size=size, location=location)
+
+# Create the cube
+create_cube()
+
+# Make the cube exportable
+bpy.context.object.name = "Exportable_Cube"
+
+# For exporting, ensure the object is selected and active
+bpy.ops.object.select_all(action='DESELECT')
+bpy.context.view_layer.objects.active = bpy.data.objects["Exportable_Cube"]
+bpy.data.objects["Exportable_Cube"].select_set(True)
+
+# Make sure the Wavefront OBJ export add-on is installed and enabled
+bpy.ops.preferences.addon_enable(module='io_scene_obj', default_set=True)
+
+# Export the cube as an OBJ file
+bpy.ops.export_scene.obj(filepath="cube.obj", use_selection=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_075014.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 3602
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 6452
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a cube
+def create_cube(size=2.0, location=(0, 0, 0)):
+    bpy.ops.mesh.primitive_cube_add(size=size, location=location)
+
+# Create the cube
+create_cube()
+
+# Make the cube exportable
+bpy.context.object.name = "Exportable_Cube"
+
+# For exporting, ensure the object is selected and active
+bpy.ops.object.select_all(action='DESELECT')
+bpy.context.view_layer.objects.active = bpy.data.objects["Exportable_Cube"]
+bpy.data.objects["Exportable_Cube"].select_set(True)
+
+# Export the cube as an OBJ file
+bpy.ops.export_scene.obj(filepath="./gen_images/cube.obj", use_selection=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_075409.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 11951
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a cube
+def create_cube(size=2.0, location=(0, 0, 0)):
+    bpy.ops.mesh.primitive_cube_add(size=size, location=location)
+
+# Create the cube
+create_cube()
+
+# Make the cube exportable
+bpy.context.object.name = "Exportable_Cube"
+
+# For exporting, ensure the object is selected and active
+bpy.ops.object.select_all(action='DESELECT')
+bpy.context.view_layer.objects.active = bpy.data.objects["Exportable_Cube"]
+bpy.data.objects["Exportable_Cube"].select_set(True)
+
+# Enable the Wavefront OBJ export add-on if it's not already enabled
+if not (addon := bpy.context.preferences.addons.get('io_scene_obj')):
+    bpy.ops.preferences.addon_enable(module='io_scene_obj', default_set=True)
+
+# Export the cube as an OBJ file
+bpy.ops.export_scene.obj(filepath="cube.obj", use_selection=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_075424.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 17939
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a cube
+def create_cube(size=2.0, location=(0, 0, 0)):
+    bpy.ops.mesh.primitive_cube_add(size=size, location=location)
+
+# Create the cube
+create_cube()
+
+# Make the cube exportable
+bpy.context.object.name = "Exportable_Cube"
+
+# For exporting, ensure the object is selected and active
+bpy.ops.object.select_all(action='DESELECT')
+bpy.context.view_layer.objects.active = bpy.data.objects["Exportable_Cube"]
+bpy.data.objects["Exportable_Cube"].select_set(True)
+
+# Enable the Wavefront OBJ export add-on if it's not already enabled
+if not bpy.context.preferences.addons.get('io_scene_obj'):
+    bpy.ops.preferences.addon_enable(module='io_scene_obj')
+
+# Export the cube as an OBJ file
+bpy.ops.export_scene.obj(filepath="cube.obj", use_selection=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_075447.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+Error: Add-on not loaded: "io_scene_obj", cause: No module named 'io_scene_obj'
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 24060
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a cube
+def create_cube(size=2.0, location=(0, 0, 0)):
+    bpy.ops.mesh.primitive_cube_add(size=size, location=location)
+
+# Create the cube
+create_cube()
+
+# Make the cube exportable
+bpy.context.object.name = "Exportable_Cube"
+
+# For exporting, ensure the object is selected and active
+bpy.ops.object.select_all(action='DESELECT')
+bpy.context.view_layer.objects.active = bpy.data.objects["Exportable_Cube"]
+bpy.data.objects["Exportable_Cube"].select_set(True)
+
+# Check if the Wavefront OBJ export add-on is installed and enable it
+if not bpy.context.preferences.addons.get('io_scene_obj'):
+    # Ensure the add-on is installed from the Preferences manually
+    print("Please ensure the Wavefront OBJ format add-on is installed.")
+
+# Export the cube as an OBJ file
+bpy.ops.export_scene.obj(filepath="cube.obj", use_selection=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_075500.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+Please ensure the Wavefront OBJ format add-on is installed.
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 9595
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a torus (donut)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.3):
+    bpy.ops.mesh.primitive_torus_add(major_radius=major_radius, minor_radius=minor_radius, location=location)
+
+# Create the donut
+create_donut()
+
+# Make the donut exportable
+bpy.context.object.name = "Exportable_Donut"
+
+# For exporting, ensure the object is selected and active
+bpy.ops.object.select_all(action='DESELECT')
+bpy.context.view_layer.objects.active = bpy.data.objects["Exportable_Donut"]
+bpy.data.objects["Exportable_Donut"].select_set(True)
+
+# Export the donut as an OBJ file
+bpy.ops.export_scene.obj(filepath="./gen_images/donut.obj", use_selection=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_075635.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 13083
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a torus (donut)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.3):
+    bpy.ops.mesh.primitive_torus_add(major_radius=major_radius, minor_radius=minor_radius, location=location)
+
+# Create the donut
+create_donut()
+
+# Make the donut exportable
+bpy.context.object.name = "Exportable_Donut"
+
+# For exporting, ensure the object is selected and active
+bpy.ops.object.select_all(action='DESELECT')
+bpy.context.view_layer.objects.active = bpy.data.objects["Exportable_Donut"]
+bpy.data.objects["Exportable_Donut"].select_set(True)
+
+# Check if the Wavefront OBJ export add-on is installed and enable it
+if not bpy.context.preferences.addons.get('io_scene_obj'):
+    # Ensure the add-on is installed from the Preferences manually
+    print("Please ensure the Wavefront OBJ format add-on is installed manually.")
+
+# Export the donut as an OBJ file
+bpy.ops.export_scene.obj(filepath="./gen_images/donut.obj", use_selection=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_075651.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+Please ensure the Wavefront OBJ format add-on is installed manually.
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 20177
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a torus (donut)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.3):
+    bpy.ops.mesh.primitive_torus_add(major_radius=major_radius, minor_radius=minor_radius, location=location)
+
+# Create the donut
+create_donut()
+
+# Make the donut exportable
+bpy.context.object.name = "Exportable_Donut"
+
+# For exporting, ensure the object is selected and active
+bpy.ops.object.select_all(action='DESELECT')
+bpy.context.view_layer.objects.active = bpy.data.objects["Exportable_Donut"]
+bpy.data.objects["Exportable_Donut"].select_set(True)
+
+# Ensure the Wavefront OBJ export add-on is enabled
+bpy.ops.preferences.addon_enable(module='io_scene_obj')
+
+# Export the donut as an OBJ file
+bpy.ops.export_scene.obj(filepath="./gen_images/donut.obj", use_selection=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_075658.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+Error: Add-on not loaded: "io_scene_obj", cause: No module named 'io_scene_obj'
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 27174
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a torus (donut)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.3):
+    bpy.ops.mesh.primitive_torus_add(major_radius=major_radius, minor_radius=minor_radius, location=location)
+
+# Create the donut
+create_donut()
+
+# Make the donut exportable
+bpy.context.object.name = "Exportable_Donut"
+
+# For exporting, ensure the object is selected and active
+bpy.ops.object.select_all(action='DESELECT')
+bpy.context.view_layer.objects.active = bpy.data.objects["Exportable_Donut"]
+bpy.data.objects["Exportable_Donut"].select_set(True)
+
+# Check if the Wavefront OBJ export add-on is installed and notify if not
+if not bpy.context.preferences.addons.get('io_scene_obj'):
+    print("Please install the Wavefront OBJ format add-on via Blender's Preferences manually.")
+
+# Export the donut as an OBJ file
+bpy.ops.export_scene.obj(filepath="./gen_images/donut.obj", use_selection=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_075710.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+Please install the Wavefront OBJ format add-on via Blender's Preferences manually.
+
+Blender quit
+
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 3284
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a donut using a torus shape
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.3):
+    # Add a torus to the scene
+    bpy.ops.mesh.primitive_torus_add(
+        major_radius=major_radius, 
+        minor_radius=minor_radius, 
+        location=location
+    )
+    return bpy.context.object
+
+# Create a donut at the origin
+donut = create_donut()
+
+# Set the file path for saving the blender file
+file_path = "./gen_images/donut.blend"
+
+# Save the current Blender file
+bpy.ops.wm.save_as_mainfile(filepath=file_path)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_080012.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Info: Total files 0 | Changed 0 | Failed 0
+Reloading external rigs...
+Reloading external metarigs...
+Info: Saved "donut.blend"
+
+Blender quit
+
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 3284
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the existing scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a donut (torus)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.4):
+    # Add torus with specified major and minor radius
+    bpy.ops.mesh.primitive_torus_add(major_radius=major_radius, minor_radius=minor_radius, location=location)
+    return bpy.context.object
+
+# Create the donut object
+donut = create_donut()
+
+# Set the object to be exportable
+donut.select_set(True)
+bpy.ops.export_scene.obj(filepath="./gen_images/donut.obj")
+
+# Deselect all
+bpy.ops.object.select_all(action='DESELECT')
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_080155.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 6813
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the existing scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a donut (torus)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.4):
+    # Add torus with specified major and minor radius
+    bpy.ops.mesh.primitive_torus_add(major_radius=major_radius, minor_radius=minor_radius, location=location)
+    return bpy.context.object
+
+# Create the donut object
+donut = create_donut()
+
+# Set the object to be the active object
+bpy.context.view_layer.objects.active = donut
+
+# Export the donut as an OBJ file
+bpy.ops.export_scene.obj(filepath="//donut.obj", use_selection=True)
+
+# Deselect all
+bpy.ops.object.select_all(action='DESELECT')
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_080209.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 13650
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the existing scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a donut (torus)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.4):
+    # Add torus with specified major and minor radius
+    bpy.ops.mesh.primitive_torus_add(major_radius=major_radius, minor_radius=minor_radius, location=location)
+    return bpy.context.object
+
+# Create the donut object
+donut = create_donut()
+
+# Set the object to be the active object
+bpy.context.view_layer.objects.active = donut
+
+# Export the donut as an OBJ file
+bpy.ops.export_scene.obj(filepath="//donut.obj", use_selection=True)
+
+# Deselect all
+bpy.ops.object.select_all(action='DESELECT')
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_080218.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 20487
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the existing scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a donut (torus)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.4):
+    # Add torus with specified major and minor radius
+    bpy.ops.mesh.primitive_torus_add(major_radius=major_radius, minor_radius=minor_radius, location=location)
+    return bpy.context.object
+
+# Create the donut object
+donut = create_donut()
+
+# Set the object to be the active object
+bpy.context.view_layer.objects.active = donut
+
+# Export the donut as an OBJ file
+bpy.ops.export_scene.obj(filepath="//donut.obj", use_selection=True)
+
+# Deselect all
+bpy.ops.object.select_all(action='DESELECT')
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_080239.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 2009
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+import os
+
+# Clear the existing scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a torus (donut)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.3):
+    bpy.ops.mesh.primitive_torus_add(major_radius=major_radius, minor_radius=minor_radius, location=location)
+    return bpy.context.object
+
+# Create the donut
+donut = create_donut()
+
+# Render the scene and save as PNG
+def render_and_save(filepath='./gen_images/donut.png'):
+    # Set the render engine to 'CYCLES' for better quality
+    bpy.context.scene.render.engine = 'CYCLES'
+    
+    # Set the output path and format
+    bpy.context.scene.render.filepath = filepath
+    bpy.context.scene.render.image_settings.file_format = 'PNG'
+    
+    # Render and save the image
+    bpy.ops.render.render(write_still=True)
+
+# Ensure the directory exists
+os.makedirs(os.path.dirname('./gen_images/'), exist_ok=True)
+
+# Render and save the image
+render_and_save()
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_080658.py
+ERROR:root:An error occurred: Command '['/Applications/Blender.app/Contents/MacOS/Blender', '--background', '--python', './gen_scripts/generated_file_20241014_080658.py']' returned non-zero exit status 1.SubprocessError: The command failed. run_blender_script_error: 
+ stderr: 
+RuntimeError: Error: Cannot render, no camera
+
+ 
+
+Traceback (most recent call last):
+  File "/Users/ardaozdogru/Desktop/akka_hack/speech_3d/backend.py", line 252, in run_blender_script
+    raise subprocess.CalledProcessError(result.returncode, command, output=result.stdout, stderr=result.stderr)
+subprocess.CalledProcessError: Command '['/Applications/Blender.app/Contents/MacOS/Blender', '--background', '--python', './gen_scripts/generated_file_20241014_080658.py']' returned non-zero exit status 1.
+
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 2009
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+import os
+
+# Clear the current scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a torus (donut)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.3):
+    bpy.ops.mesh.primitive_torus_add(major_radius=major_radius, minor_radius=minor_radius, location=location)
+    return bpy.context.object
+
+# Create a donut
+donut = create_donut()
+
+# Set up the rendering context to save the result as a PNG
+output_path = './gen_images/donut_render.png'
+output_dir = os.path.dirname(bpy.path.abspath(output_path))
+
+# Ensure the directory exists
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
+
+# Set up the rendering settings
+bpy.context.scene.render.image_settings.file_format = 'PNG'
+bpy.context.scene.render.filepath = output_path
+
+# Render the scene
+bpy.ops.render.render(write_still=True)
+
+# Save the rendered image
+bpy.data.images['Render Result'].save_render(filepath=output_path)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_080911.py
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 1080
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 2009
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+import os
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Create a torus (donut)
+bpy.ops.mesh.primitive_torus_add(major_radius=1.0, minor_radius=0.3, location=(0, 0, 0))
+donut = bpy.context.object
+
+# Set up render settings to save an image
+# Create a new camera
+bpy.ops.object.camera_add(location=(3, -3, 2), rotation=(1.1, 0, 0.8))
+camera = bpy.context.object
+bpy.context.scene.camera = camera
+
+# Create a light source
+bpy.ops.object.light_add(type='POINT', location=(4, -4, 6))
+
+# Render the scene to a file
+output_path = os.path.join('./gen_images/', 'donut.png')
+
+# Ensure the directory exists
+os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+# Set render filepath and file format
+bpy.context.scene.render.filepath = output_path
+bpy.context.scene.render.image_settings.file_format = 'PNG'
+
+# Render and save the image
+bpy.ops.render.render(write_still=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_083340.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Fra:1 Mem:73.98M (Peak 73.98M) | Time:00:13.66 | Rendering 1 / 64 samples
+Fra:1 Mem:74.24M (Peak 74.24M) | Time:00:14.30 | Rendering 25 / 64 samples
+Fra:1 Mem:74.28M (Peak 74.28M) | Time:00:14.84 | Rendering 50 / 64 samples
+Fra:1 Mem:74.34M (Peak 74.34M) | Time:00:15.18 | Rendering 64 / 64 samples
+Saved: 'gen_images/donut.png'
+Time: 00:15.82 (Saving: 00:00.46)
+
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 2187
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a torus (donut)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.3):
+    bpy.ops.mesh.primitive_torus_add(major_radius=major_radius, minor_radius=minor_radius, location=location)
+    return bpy.context.object
+
+# Function to add a sun lamp
+def create_sun(location=(50, 50, 50), strength=10.0):
+    bpy.ops.object.light_add(type='SUN', location=location)
+    sun = bpy.context.object
+    sun.data.energy = strength
+    return sun
+
+# Create a camera function
+def create_camera(location=(0, -15, 0), rotation=(1.57, 0, 0)):
+    bpy.ops.object.camera_add(location=location, rotation=rotation)
+    return bpy.context.object
+
+# Create the donut
+donut = create_donut()
+
+# Create the sun
+sun = create_sun()
+
+# Create the camera
+camera = create_camera()
+
+# Set the camera as the active camera
+bpy.context.scene.camera = camera
+
+# Set render resolution
+bpy.context.scene.render.resolution_x = 1920
+bpy.context.scene.render.resolution_y = 1080
+
+# Render the scene
+bpy.ops.render.render(write_still=True)
+
+# The rendered image will be saved in the directory ".\gen_images\" as per your instructions, make sure to set the file path
+bpy.context.scene.render.filepath = "./gen_images/donut_render.png"
+bpy.ops.render.render(write_still=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_083635.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Fra:1 Mem:73.98M (Peak 73.98M) | Time:00:12.69 | Rendering 1 / 64 samples
+Fra:1 Mem:74.24M (Peak 74.24M) | Time:00:13.20 | Rendering 25 / 64 samples
+Fra:1 Mem:74.28M (Peak 74.28M) | Time:00:13.74 | Rendering 50 / 64 samples
+Fra:1 Mem:74.34M (Peak 74.34M) | Time:00:13.99 | Rendering 64 / 64 samples
+Saved: '/tmp/.png'
+Time: 00:14.76 (Saving: 00:00.60)
+
+Fra:1 Mem:74.14M (Peak 74.14M) | Time:00:00.11 | Rendering 1 / 64 samples
+Fra:1 Mem:74.18M (Peak 74.18M) | Time:00:00.51 | Rendering 25 / 64 samples
+Fra:1 Mem:74.35M (Peak 74.35M) | Time:00:00.94 | Rendering 50 / 64 samples
+Fra:1 Mem:74.35M (Peak 74.35M) | Time:00:01.17 | Rendering 64 / 64 samples
+Saved: 'gen_images/donut_render.png'
+Time: 00:01.73 (Saving: 00:00.44)
+
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 6070
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a torus (donut)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.3):
+    bpy.ops.mesh.primitive_torus_add(align='WORLD', location=location, major_radius=major_radius, minor_radius=minor_radius)
+    return bpy.context.object
+
+# Function to add a sun lamp
+def create_sun(location=(50, 50, 50), strength=10.0):
+    bpy.ops.object.light_add(type='SUN', location=location)
+    sun = bpy.context.object
+    sun.data.energy = strength
+    return sun
+
+# Function to create a camera
+def create_camera(location=(0, -15, 0), rotation=(1.57, 0, 0)):
+    bpy.ops.object.camera_add(location=location, rotation=rotation)
+    return bpy.context.object
+
+# Create the donut
+donut = create_donut()
+
+# Create the sun
+sun = create_sun()
+
+# Create the camera
+camera = create_camera()
+
+# Set the camera as the active camera
+bpy.context.scene.camera = camera
+
+# Set render resolution
+bpy.context.scene.render.resolution_x = 1920
+bpy.context.scene.render.resolution_y = 1080
+
+# Set the output file path
+bpy.context.scene.render.filepath = "./gen_images/donut_render.png"
+
+# Render the scene and save the image
+bpy.ops.render.render(write_still=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_083843.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Fra:1 Mem:73.98M (Peak 73.98M) | Time:00:12.45 | Rendering 1 / 64 samples
+Fra:1 Mem:74.24M (Peak 74.24M) | Time:00:13.07 | Rendering 25 / 64 samples
+Fra:1 Mem:74.28M (Peak 74.28M) | Time:00:13.51 | Rendering 50 / 64 samples
+Fra:1 Mem:74.34M (Peak 74.34M) | Time:00:13.76 | Rendering 64 / 64 samples
+Saved: 'gen_images/donut_render.png'
+Time: 00:14.48 (Saving: 00:00.60)
+
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 4076
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 3811
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the existing scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a torus (donut)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.3):
+    bpy.ops.mesh.primitive_torus_add(major_radius=major_radius, minor_radius=minor_radius, location=location)
+    return bpy.context.object
+
+# Function to add a sun lamp
+def add_sun_lamp(location=(5, 5, 5)):
+    bpy.ops.object.light_add(type='SUN', location=location)
+    return bpy.context.object
+
+# Function to add and position the camera
+def add_camera(location=(0, -15, 0), look_at=(0, 0, 0)):
+    bpy.ops.object.camera_add(location=location)
+    camera = bpy.context.object
+    
+    # Aim the camera at the look_at point
+    direction = (look_at[0] - location[0], look_at[1] - location[1], look_at[2] - location[2])
+    rot_quat = direction.to_track_quat('-Z', 'Y')
+    camera.rotation_euler = rot_quat.to_euler()
+    
+    return camera
+
+# Create the donut
+donut = create_donut()
+
+# Add the sun lamp
+sun_lamp = add_sun_lamp()
+
+# Add and position the camera
+camera = add_camera()
+
+# Set the camera as the active camera
+bpy.context.scene.camera = camera
+
+# Set render settings
+bpy.context.scene.render.filepath = './gen_images/donut_render.png'
+bpy.context.scene.render.image_settings.file_format = 'PNG'
+
+# Render the scene
+bpy.ops.render.render(write_still=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_084423.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 3808
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+import os
+
+# Clear the current scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a torus (donut)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.3):
+    bpy.ops.mesh.primitive_torus_add(align='WORLD', location=location, major_radius=major_radius, minor_radius=minor_radius)
+    return bpy.context.object
+
+# Create a donut at the origin
+donut = create_donut()
+
+# Function to add a sun lamp to the scene
+def create_sun_light(location=(5, 5, 5)):
+    bpy.ops.object.light_add(type='SUN', align='WORLD', location=location)
+    sun = bpy.context.object
+    sun.data.energy = 3  # Adjust the strength of the sun
+    return sun
+
+# Add a sun lamp to the scene
+sun_light = create_sun_light()
+
+# Function to set up the camera
+def setup_camera(location=(0, -15, 0), look_at=(0, 0, 0)):
+    bpy.ops.object.camera_add(align='WORLD', location=location)
+    camera = bpy.context.object
+    camera.rotation_euler = (1.5708, 0, 0)  # Rotate to face forward along the Y-axis
+    return camera
+
+# Set up the camera 15 meters away
+camera = setup_camera()
+
+# Set the render settings
+bpy.context.scene.render.image_settings.file_format = 'PNG'
+bpy.context.scene.render.filepath = os.path.join('./gen_images', 'donut_the_last.png')
+
+# Render the scene
+bpy.ops.render.render(write_still=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_084654.py
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 4901
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+import os
+
+# Clear the current scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a torus (donut)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.3):
+    bpy.ops.mesh.primitive_torus_add(align='WORLD', location=location, major_radius=major_radius, minor_radius=minor_radius)
+    return bpy.context.object
+
+# Create a donut at the origin
+donut = create_donut()
+
+# Function to add a sun lamp to the scene
+def create_sun_light(location=(5, 5, 5)):
+    bpy.ops.object.light_add(type='SUN', align='WORLD', location=location)
+    sun = bpy.context.object
+    sun.data.energy = 3  # Adjust the strength of the sun
+    return sun
+
+# Add a sun lamp to the scene
+sun_light = create_sun_light()
+
+# Function to set up the camera
+def setup_camera(location=(0, -15, 5), look_at=(0, 0, 0)):
+    bpy.ops.object.camera_add(align='WORLD', location=location)
+    camera = bpy.context.object
+
+    # Point camera at the donut
+    direction = bpy.mathutils.Vector(look_at) - bpy.mathutils.Vector(camera.location)
+    rot_quat = direction.to_track_quat('-Z', 'Y')
+    camera.rotation_euler = rot_quat.to_euler()
+
+    return camera
+
+# Set up the camera 15 meters away with slight elevation
+camera = setup_camera()
+
+# Set the render settings
+bpy.context.scene.render.image_settings.file_format = 'PNG'
+bpy.context.scene.render.filepath = os.path.join('./gen_images', 'donut_the_last.png')
+
+# Render the scene
+bpy.ops.render.render(write_still=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_085016.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 7181
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+import os
+from mathutils import Vector
+
+# Clear the current scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a torus (donut)
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.3):
+    bpy.ops.mesh.primitive_torus_add(align='WORLD', location=location, major_radius=major_radius, minor_radius=minor_radius)
+    return bpy.context.object
+
+# Create a donut at the origin
+donut = create_donut()
+
+# Function to add a sun lamp to the scene
+def create_sun_light(location=(5, 5, 5)):
+    bpy.ops.object.light_add(type='SUN', align='WORLD', location=location)
+    sun = bpy.context.object
+    sun.data.energy = 3  # Adjust the strength of the sun
+    return sun
+
+# Add a sun lamp to the scene
+sun_light = create_sun_light()
+
+# Function to set up the camera
+def setup_camera(location=(0, -15, 5), look_at=(0, 0, 0)):
+    bpy.ops.object.camera_add(align='WORLD', location=location)
+    camera = bpy.context.object
+
+    # Point camera at the donut
+    direction = Vector(look_at) - Vector(camera.location)
+    rot_quat = direction.to_track_quat('-Z', 'Y')
+    camera.rotation_euler = rot_quat.to_euler()
+
+    return camera
+
+# Set up the camera 15 meters away with slight elevation
+camera = setup_camera()
+
+# Set the render settings
+bpy.context.scene.render.image_settings.file_format = 'PNG'
+bpy.context.scene.render.filepath = os.path.join('./gen_images', 'donut_the_last.png')
+
+# Render the scene
+bpy.ops.render.render(write_still=True)
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_085031.py
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 3811
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the existing scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a torus resembling a donut
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.3):
+    bpy.ops.mesh.primitive_torus_add(align='WORLD', location=location, major_radius=major_radius, minor_radius=minor_radius)
+    return bpy.context.object
+
+# Function to add a sun lamp
+def add_sun_lamp(location=(10, -10, 10)):
+    bpy.ops.object.light_add(type='SUN', align='WORLD', location=location)
+    return bpy.context.object
+
+# Function to setup a camera
+def create_camera(location=(0, -15, 0)):
+    bpy.ops.object.camera_add(align='WORLD', location=location)
+    camera = bpy.context.object
+    # Point the camera at the origin
+    bpy.ops.object.select_all(action='DESELECT')
+    camera.select_set(True)
+    bpy.context.view_layer.objects.active = camera
+
+    direction = bpy.context.scene.cursor.location - camera.location
+    rot_quat = direction.to_track_quat('-Z', 'Y')
+    camera.rotation_euler = rot_quat.to_euler()
+    return camera
+
+# Function to setup rendering and save the image
+def setup_render(file_path='./gen_images/render.png'):
+    bpy.context.scene.camera = bpy.context.scene.objects['Camera']
+    bpy.context.scene.render.image_settings.file_format = 'PNG'
+    bpy.context.scene.render.filepath = file_path
+    bpy.ops.render.render(write_still=True)
+
+# Create the donut, lamp, and camera
+donut = create_donut()
+sun_lamp = add_sun_lamp()
+camera = create_camera()
+
+# Setup render and save the image
+setup_render()
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_085334.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Fra:1 Mem:73.98M (Peak 73.98M) | Time:00:12.61 | Rendering 1 / 64 samples
+Fra:1 Mem:74.24M (Peak 74.24M) | Time:00:13.31 | Rendering 25 / 64 samples
+Fra:1 Mem:74.28M (Peak 74.28M) | Time:00:13.83 | Rendering 50 / 64 samples
+Fra:1 Mem:74.34M (Peak 74.34M) | Time:00:14.10 | Rendering 64 / 64 samples
+Saved: 'gen_images/render.png'
+Time: 00:14.73 (Saving: 00:00.46)
+
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 5173
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Generated Blender script: 
+import bpy
+
+# Clear the existing scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+# Function to create a torus resembling a donut
+def create_donut(location=(0, 0, 0), major_radius=1, minor_radius=0.3):
+    bpy.ops.mesh.primitive_torus_add(align='WORLD', location=location, major_radius=major_radius, minor_radius=minor_radius)
+    donut = bpy.context.object
+    # Rotate the donut 30 degrees around the X-axis
+    donut.rotation_euler[0] = 30 * (3.14159 / 180)  # Convert degrees to radians
+    return donut
+
+# Function to add a sun lamp and make it brighter
+def add_sun_lamp(location=(10, -10, 10), energy=5):
+    bpy.ops.object.light_add(type='SUN', align='WORLD', location=location)
+    sun_lamp = bpy.context.object
+    sun_lamp.data.energy = energy  # Increase the brightness of the sun
+    return sun_lamp
+
+# Function to setup a camera
+def create_camera(location=(15, 15, 0)):
+    bpy.ops.object.camera_add(align='WORLD', location=location)
+    camera = bpy.context.object
+    # Point the camera at the origin
+    bpy.ops.object.select_all(action='DESELECT')
+    camera.select_set(True)
+    bpy.context.view_layer.objects.active = camera
+
+    target_location = (0, 0, 0)
+    direction = bpy.context.scene.cursor.location - camera.location
+    rot_quat = direction.to_track_quat('-Z', 'Y')
+    camera.rotation_euler = rot_quat.to_euler()
+    return camera
+
+# Function to setup rendering and save the image
+def setup_render(file_path='./gen_images/donut_the_last.png'):
+    bpy.context.scene.camera = bpy.context.scene.objects['Camera']
+    bpy.context.scene.render.image_settings.file_format = 'PNG'
+    bpy.context.scene.render.filepath = file_path
+    bpy.ops.render.render(write_still=True)
+
+# Create the donut, lamp, and camera
+donut = create_donut()
+sun_lamp = add_sun_lamp()
+camera = create_camera()
+
+# Setup render and save the image
+setup_render()
+INFO:root:Blender script saved as ./gen_scripts/generated_file_20241014_085626.py
+INFO:root:Blender script executed successfully: Blender 4.2.2 LTS (hash c03d7d98a413 built 2024-09-24 00:03:13)
+Fra:1 Mem:73.98M (Peak 73.98M) | Time:00:12.42 | Rendering 1 / 64 samples
+Fra:1 Mem:74.24M (Peak 74.24M) | Time:00:13.31 | Rendering 25 / 64 samples
+Fra:1 Mem:74.28M (Peak 74.28M) | Time:00:13.96 | Rendering 50 / 64 samples
+Fra:1 Mem:74.34M (Peak 74.34M) | Time:00:14.32 | Rendering 64 / 64 samples
+Saved: 'gen_images/donut_the_last.png'
+Time: 00:15.02 (Saving: 00:00.51)
+
+Reloading external rigs...
+Reloading external metarigs...
+
+Blender quit
+
+INFO:root:
+
+
+
+
+
+
+
+
+
+//////////////////--------------------Logging system successfully initialized ---------------------------\\\\\\\
+
+
+
+
+INFO:httpx:HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-ada-002/embeddings?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+INFO:root:Tokens in the message: 831
+INFO:httpx:HTTP Request: POST https://cld.akkodis.com/api/openai/deployments/models-gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
