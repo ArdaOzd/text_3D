@@ -2,6 +2,8 @@
 
 pip reqs.txt
 
+also dependencies of the Hackathon2024 (if it doesn't already come with reqs.txt)
+
 you need Blender 4.2 LTS
 
 run better_gui.py
